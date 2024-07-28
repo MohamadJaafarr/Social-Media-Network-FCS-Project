@@ -79,3 +79,7 @@ class AdjacencyMatrix:
             for key, value in self.users.items():
                 if value > index:
                     self.users[key] = value - 1  # Decrement their index by one
+
+    def get_all_users(self):
+        """Return a list of all user names."""
+        return list(self.users.keys())  # Return the keys from the users dictionary

@@ -370,3 +370,28 @@ def main():
     graph.addconnection("Omar", "Mohamad")
     graph.addconnection("Mohamad", "Mohamad")
 
+    graph.displayGraph()
+    print()
+
+    graph.dijkstra("Rana", "Layla")
+
+    graph.bfs("Mohamad")
+    print()
+
+    graph.dfs("Mohamad")
+    print()
+
+    # Find and display connected components
+    components = graph.connected_components()
+    print(Fore.GREEN + "\nConnected Components:")
+    for i, component in enumerate(components, 1):
+        print(f"Component {i}: {', '.join(component)}")
+    
+    graph.visualize()
+
+    print(f"Average number of friends per user: {graph.average_friends_per_user()}")
+    print(f"Network density: {graph.network_density()}")
+    print(f"Clustering coefficient: {graph.clustering_coefficient()}")
+
+if __name__ == "__main__":
+    main()

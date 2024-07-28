@@ -67,3 +67,15 @@ class User:
         self.profile_posts['likes'][post_content] = []  # Initialize likes for the post
         print(f"Post added by {self.name}: {post_content}")  # Notify about the new post
         self.activity_log.append(f"Added post: {post_content}")  # Log the activity
+
+    def like_post(self, post_content, user):
+        """Like a post made by another user"""
+        if post_content in user.profile_posts['posts']:  # Check if the post exists
+            if user.profile_posts['likes'][post_content] is not None:
+                user.profile_posts['likes'][post_content].append(self.name)  # Add user to likes
+                print(f"{self.name} liked {user.name}'s post: {post_content}")  # Notify about the like
+                self.activity_log.append(f"Liked {user.name}'s post: {post_content}")  # Log the activity
+            else:
+                print(f"You already liked this post.")  # Handle case of duplicate like
+        else:
+            print(f"Post not found.")  # Handle case where post does not exist

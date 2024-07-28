@@ -220,3 +220,6 @@ def main():
     print("\nAll Users:") 
     for user in User.all_users: 
         print(user)  
+
+
+main()  

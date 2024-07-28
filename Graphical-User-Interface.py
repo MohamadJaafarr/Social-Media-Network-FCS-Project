@@ -124,3 +124,17 @@ class GraphApp(tk.Tk):
                     messagebox.showwarning("Warning", f"Connection could not be removed. Check user names.", parent=self)
             else:
                 messagebox.showwarning("Warning", f"One or both user names do not exist.", parent=self)
+
+    def visualize_graph(self):
+        self.graph.visualize()
+
+    def show_stats(self):
+        avg_friends = self.graph.average_friends_per_user()
+        density = self.graph.network_density()
+        clustering = self.graph.clustering_coefficient()
+        stats_message = (
+            f"Average number of friends per user: {avg_friends:.2f}\n"
+            f"Network density: {density:.2f}\n"
+            f"Clustering coefficient: {clustering:.2f}"
+        )
+        messagebox.showinfo("Statistics", stats_message, parent=self)

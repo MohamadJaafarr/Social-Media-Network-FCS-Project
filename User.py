@@ -41,3 +41,12 @@ class User:
             self.activity_log.append(f"Accepted friend request from {friend.name}.")  # Log the activity
         else:
             print(f"No friend request from {friend.name}.")  # Handle case where there is no request
+
+    def remove_friend(self, friend):
+        """Remove a friend from the user's friend list"""
+        if friend in self.friends:
+            self.friends.remove(friend)  # Remove from friends list
+            print(f"{friend.name} has been removed from your friends.")  # Notify about the removal
+            self.activity_log.append(f"Removed {friend.name} from friends.")  # Log the activity
+        else:
+            print(f"{friend.name} is not in your friends list.")  # Handle case where friend not found

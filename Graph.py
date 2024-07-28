@@ -61,3 +61,21 @@ class AdjacencyMatrix:
         else:
             # Notify if either user is not found
             print(f"{Fore.RED}Users {user1} and/or {user2} not found.")
+
+    def removeuser(self, user):
+        """Remove a user from the graph along with their connections."""
+        if user in self.users:
+            index = self.users[user]  # Get the index of the user to be removed
+            del self.users[user]  # Remove the user from the users dictionary
+            del self.graph[index]  # Remove the user's row from the adjacency matrix
+
+            # Remove the user's column from each row in the adjacency matrix
+            for row in self.graph:
+                del row[index]
+            
+            self.num_users -= 1  # Decrease the total number of users
+
+            # Update the user indices for users that came after the removed user
+            for key, value in self.users.items():
+                if value > index:
+                    self.users[key] = value - 1  # Decrement their index by one

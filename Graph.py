@@ -35,3 +35,16 @@ class AdjacencyMatrix:
             # Notify if the user already exists
             print(f"{Fore.RED}User {user_name} already exists.")
             return False  # Indicate failure in adding the user
+        
+    def addconnection(self, user1, user2):
+        """Add a connection (friendship) between two users."""
+        if user1 in self.users and user2 in self.users:
+            # Get the index of each user
+            idx1 = self.users[user1]
+            idx2 = self.users[user2]
+            # Update the adjacency matrix to indicate a connection between the two users
+            self.graph[idx1][idx2] = 1  # Set the connection for user1 to user2
+            self.graph[idx2][idx1] = 1  # Set the connection for user2 to user1 
+        else:
+            # Notify if either user is not found
+            print(f"{Fore.RED}Users {user1} and/or {user2} not found.")

@@ -3,3 +3,8 @@ import matplotlib.pyplot as plt  # For creating static, animated, and interactiv
 from colorama import Fore, Style, init  # For format text output in the console with colors.
 import os  # For interacting with the operating system, such as clearing the console screen.
 import heapq  # For the priority queue implementation
+
+
+# Initialize colorama
+init(autoreset=True)
+# Automatically resets the color and style after each print statement, so you don't need to manually reset styles.

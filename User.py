@@ -136,7 +136,9 @@ class User:
         for activity in self.activity_log:  # Iterate over activities
             print(f"- {activity}")  # Print each activity
 
-    def clear_screen():
-        # Clear the console screen for a cleaner interface
-        os.system('cls' if os.name == 'nt' else 'clear')
+def clear_screen():
+    # Clear the console screen for a cleaner interface
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+
     

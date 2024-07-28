@@ -142,3 +142,10 @@ class GraphApp(tk.Tk):
 def clear_screen():
     # Clear the console screen for a cleaner interface
     os.system('cls' if os.name == 'nt' else 'clear')
+
+
+if __name__ == "__main__":
+
+    app = GraphApp()
+    app.mainloop() #is essential for any Tkinter application,
+    # as it keeps the application running and responsive to user interactions until the window is closed.

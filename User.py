@@ -4,7 +4,7 @@ import os # Import OS for system operations
 class User:
     # Class variable to store all user instances
     all_users = []
-    
+
     def __init__(self, user_id: int, name: str, age: int):
         # Initialize user attributes
         self.user_id = user_id  # ID for the user
@@ -18,3 +18,7 @@ class User:
         self.activity_log = []  # User activities
         self.profile_picture = None  # Placeholder for profile picture
         User.all_users.append(self)  # Add the user instance to the class-level list
+
+    def __str__(self) -> str:
+        # Return a string representation of the user
+        return f"User ID: {self.user_id}, Name: {self.name}, Age: {self.age}"

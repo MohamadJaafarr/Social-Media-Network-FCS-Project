@@ -124,4 +124,9 @@ class User:
         else:
             print("Invalid search key!")  # Handle invalid key
             return []  # Return an empty list if the key is invalid
+        
+    def set_profile_picture(self, picture_url):
+        """Set the user's profile picture"""
+        self.profile_picture = picture_url  # Update the profile picture attribute
+        print(f"Profile picture updated for {self.name}.")  # Notify about the picture update
     

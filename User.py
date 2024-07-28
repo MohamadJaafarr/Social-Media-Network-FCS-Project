@@ -79,3 +79,10 @@ class User:
                 print(f"You already liked this post.")  # Handle case of duplicate like
         else:
             print(f"Post not found.")  # Handle case where post does not exist
+
+    def display_posts(self):
+        """Display all posts by the user"""
+        print(f"Posts by {self.name}:")  # Header for the post display
+        for post in self.profile_posts['posts']:
+            likes_count = len(self.profile_posts['likes'][post])  # Count likes for each post
+            print(f"{post} (Likes: {likes_count})")  # Print each post with its like count

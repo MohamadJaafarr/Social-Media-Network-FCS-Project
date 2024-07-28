@@ -186,3 +186,31 @@ class AdjacencyMatrix:
                     queue.append(neighbor)  # Enqueue the neighbor
                     visited.add(neighbor)  # Mark the neighbor as visited
                     print(neighbor, end=' ')  # Print the neighbor
+
+    def dfs(self, start_user):
+        """Perform a Depth-First Search (DFS) starting from the given user."""
+        visited = set()  # Set to keep track of visited users
+        stack = [start_user]  # Initialize the stack with the starting user
+        
+        if start_user not in self.users:
+            # Notify if the starting user is not found
+            print(f"{Fore.RED}User {start_user} not found.")
+            return
+        
+        start_index = self.users[start_user]  # Get the index of the starting user
+        visited.add(start_user)  # Mark the starting user as visited
+        print(Fore.GREEN + "DFS traversal starting from", start_user + ":")
+        print(start_user, end=' ')  # Print the starting user
+        
+        while stack:
+            user = stack.pop()  # Pop a user from the stack
+            index = self.users[user]  # Get the index of the user
+            
+            # Check all possible connections from the current user
+            for neighbor_index in range(self.num_users):
+                # If a connection exists and the neighbor hasn't been visited
+                if self.graph[index][neighbor_index] == 1 and self.get_all_users()[neighbor_index] not in visited:
+                    neighbor = self.get_all_users()[neighbor_index]  # Get the neighbor's name
+                    stack.append(neighbor)  # Add the neighbor to the stack
+                    visited.add(neighbor)  # Mark the neighbor as visited
+                    print(neighbor, end=' ')  # Print the neighbor

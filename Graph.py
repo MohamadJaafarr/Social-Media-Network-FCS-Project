@@ -158,3 +158,31 @@ class AdjacencyMatrix:
                         heapq.heappush(queue, (distance, neighbor))  # Add neighbor to the priority queue
 
         print(f"{Fore.RED}No path found from {start_user} to {end_user}.")
+
+    def bfs(self, start_user):
+        """Perform a Breadth-First Search (BFS) starting from the given user."""
+        visited = set()  # Set to keep track of visited users
+        queue = [start_user]  # Initialize the queue with the starting user
+        
+        if start_user not in self.users:
+            # Notify if the starting user is not found
+            print(f"{Fore.RED}User {start_user} not found.")
+            return
+        
+        start_index = self.users[start_user]  # Get the index of the starting user
+        visited.add(start_user)  # Mark the starting user as visited
+        print(Fore.GREEN + "BFS traversal starting from", start_user + ":")
+        print(start_user, end=' ')  # Print the starting user
+        
+        while queue:
+            user = queue.pop(0)  # Dequeue a user from the front of the queue
+            index = self.users[user]  # Get the index of the user
+            
+            # Check all possible connections from the current user
+            for neighbor_index in range(self.num_users):
+                # If a connection exists and the neighbor hasn't been visited
+                if self.graph[index][neighbor_index] == 1 and self.get_all_users()[neighbor_index] not in visited:
+                    neighbor = self.get_all_users()[neighbor_index]  # Get the neighbor's name
+                    queue.append(neighbor)  # Enqueue the neighbor
+                    visited.add(neighbor)  # Mark the neighbor as visited
+                    print(neighbor, end=' ')  # Print the neighbor

@@ -15,3 +15,15 @@ class GraphApp(tk.Tk):
     for the social media network graph application.
 
     """
+    def __init__(self):
+        """
+        Initialize the GraphApp window.
+        Sets up the main application window properties and initializes the graph.
+
+        """
+        super().__init__()
+        self.title("Social Media Network")
+        self.geometry("400x500")
+        self.configure(bg="#f0f0f0")
+        self.create_widgets()
+        self.graph = AdjacencyMatrix()

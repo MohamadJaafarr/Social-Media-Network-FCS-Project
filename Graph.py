@@ -112,3 +112,49 @@ class AdjacencyMatrix:
             
             # Print the complete row with connections
             print(row_display + Style.RESET_ALL)  # Reset to default style after each row
+
+    def dijkstra(self, start_user, end_user):
+        """Find the shortest path between two users using Dijkstra's algorithm."""
+        if start_user not in self.users or end_user not in self.users:
+            print(f"{Fore.RED}Start user or end user not found.")
+            return
+        
+        # Initialize distances and priority queue
+        distances = {user: float('inf') for user in self.users}  # Set all distances to infinity
+        distances[start_user] = 0  # Distance to the start user is zero
+        queue = [(0, start_user)]  # Priority queue initialized with the start user
+        
+        predecessors = {user: None for user in self.users}  # To reconstruct the path
+
+        while queue:
+            current_distance, current_user = heapq.heappop(queue)  # Get the user with the smallest distance
+            
+            # If we reach the end user, we can reconstruct the path
+            if current_user == end_user:
+                path = []
+                while current_user is not None:
+                    path.append(current_user)
+                    current_user = predecessors[current_user]
+                path.reverse()  # Reverse the path to get it from start to end
+                print(f"Shortest path from {start_user} to {end_user}: {' -> '.join(path)}")
+                print(f"Total distance: {distances[end_user]}")
+                return
+            
+            # Skip processing if the distance is not optimal anymore
+            if current_distance > distances[current_user]:
+                continue
+            
+            # Check all neighbors of the current user
+            for neighbor_index in range(self.num_users):
+                weight = self.graph[self.users[current_user]][neighbor_index]
+                if weight < float('inf'):  # Check if there is a valid edge
+                    neighbor = self.get_all_users()[neighbor_index]
+                    distance = current_distance + weight
+                    
+                    # If found a shorter path to the neighbor
+                    if distance < distances[neighbor]:
+                        distances[neighbor] = distance
+                        predecessors[neighbor] = current_user
+                        heapq.heappush(queue, (distance, neighbor))  # Add neighbor to the priority queue
+
+        print(f"{Fore.RED}No path found from {start_user} to {end_user}.")

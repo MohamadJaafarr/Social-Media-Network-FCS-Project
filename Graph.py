@@ -295,3 +295,10 @@ class AdjacencyMatrix:
         # Show plotw
         plt.show()
 
+    def average_friends_per_user(self):
+        """Calculate the average number of friends per user."""
+        # Count the total number of actual friends by iterating over the adjacency matrix (graph)
+        total_friends = sum(len([j for j in row if j == 1]) for row in self.graph)
+        # Return the average number of friends per user, ensuring no division by zero
+        return total_friends / self.num_users if self.num_users > 0 else 0
+

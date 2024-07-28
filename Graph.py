@@ -8,3 +8,9 @@ import heapq  # For the priority queue implementation
 # Initialize colorama
 init(autoreset=True)
 # Automatically resets the color and style after each print statement, so you don't need to manually reset styles.
+class AdjacencyMatrix:
+
+    def __init__(self):
+        self.users = {}  # Dictionary to store user indices
+        self.graph = []  # Adjacency matrix
+        self.num_users = 0  # Number of users

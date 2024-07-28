@@ -14,3 +14,24 @@ class AdjacencyMatrix:
         self.users = {}  # Dictionary to store user indices
         self.graph = []  # Adjacency matrix
         self.num_users = 0  # Number of users
+
+    def adduser(self, user_name):
+        """Add a new user to the graph."""
+        if user_name not in self.users:
+            # If the user does not already exist, add them to the users dictionary
+            self.users[user_name] = self.num_users  # Map user name to a unique index
+            self.num_users += 1  # Increment the total number of users
+
+            # Extend the graph by adding a new column for the new user in each existing row
+            for row in self.graph:
+                row.append(float('inf'))  # Using float('inf') is often useful in algorithms,
+                # particularly those involving optimization or graph-related algorithms,
+                #  such as Dijkstra's algorithm for shortest paths
+            
+            # Append a new row for the new user initialized to zero 
+            self.graph.append([float('inf')] * self.num_users)
+            return True  # Indicate success in adding the user
+        else:
+            # Notify if the user already exists
+            print(f"{Fore.RED}User {user_name} already exists.")
+            return False  # Indicate failure in adding the user

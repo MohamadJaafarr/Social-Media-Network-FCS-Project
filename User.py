@@ -22,3 +22,12 @@ class User:
     def __str__(self) -> str:
         # Return a string representation of the user
         return f"User ID: {self.user_id}, Name: {self.name}, Age: {self.age}"
+    
+    def add_friend(self, friend):
+        """Send a friend request to another user"""
+        if friend not in self.friends and friend not in self.friend_requests:
+            self.friend_requests.append(friend)  # Add to pending requests
+            print(f"Friend request sent to {friend.name}.")  # Notify about the sent request
+            self.activity_log.append(f"Sent friend request to {friend.name}.")  # Log the activity
+        else:
+            print(f"{friend.name} is already your friend or a pending request.")  # Handle duplicate requests

@@ -138,3 +138,7 @@ class GraphApp(tk.Tk):
             f"Clustering coefficient: {clustering:.2f}"
         )
         messagebox.showinfo("Statistics", stats_message, parent=self)
+
+def clear_screen():
+    # Clear the console screen for a cleaner interface
+    os.system('cls' if os.name == 'nt' else 'clear')

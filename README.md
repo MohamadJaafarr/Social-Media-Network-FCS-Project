@@ -38,8 +38,8 @@ This project features a powerful network visualization tool that helps users und
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/social-media-network-analysis.git
-   cd social-media-network-analysis
+   git clone https://github.com/MohamadJaafarr/Social-Media-Network-FCS-Project
+   cd Social-Media-Network-FCS-Project
 
 2. Install the required packages:
    

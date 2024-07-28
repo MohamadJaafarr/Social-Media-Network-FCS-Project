@@ -135,4 +135,8 @@ class User:
         print(f"Activity Log for {self.name}:")  # Header for the activity log
         for activity in self.activity_log:  # Iterate over activities
             print(f"- {activity}")  # Print each activity
+
+    def clear_screen():
+        # Clear the console screen for a cleaner interface
+        os.system('cls' if os.name == 'nt' else 'clear')
     

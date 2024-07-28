@@ -248,4 +248,50 @@ class AdjacencyMatrix:
                             stack.append(neighbor)  # Add unvisited neighbors to the stack
         
         return component  # Return the connected component found
+    
+    def visualize(self):
+        """Visualize the social network graph using NetworkX and Matplotlib with enhanced aesthetics."""
+        G = nx.Graph()
+
+        # Add nodes
+        for user in self.users:
+            G.add_node(user)
+
+        # Add edges based on the adjacency matrix
+        for i in range(len(self.graph)):
+            for j in range(i + 1, len(self.graph[i])):
+                if self.graph[i][j] == 1:
+                    user1 = self.get_all_users()[i]
+                    user2 = self.get_all_users()[j]
+                    G.add_edge(user1, user2)
+
+        # Set node colors based on degree
+        node_colors = [G.degree(user) for user in G.nodes()]
+        node_sizes = [500 + 100 * G.degree(user) for user in G.nodes()]  # Size based on degree
+
+        # Create a layout
+        pos = nx.spring_layout(G, seed=42, k=1.2)  # Increase k for more spacing
+        plt.figure(figsize=(12, 10))
+
+        # Draw nodes with colors based on degree
+        nodes = nx.draw_networkx_nodes(G, pos, node_color=node_colors, cmap=plt.cm.viridis, node_size=node_sizes, alpha=0.9)
+
+        # Draw edges with a thickness based on weight
+        edges = nx.draw_networkx_edges(G, pos, width=2, alpha=0.5, edge_color='gray')
+
+        # Draw labels with a specific font size and positioning
+        labels = nx.draw_networkx_labels(G, pos, font_size=12, font_color='black', font_family='sans-serif')
+
+        # Add title and hide the axes
+        plt.title("Social Media Network Visualization", fontsize=20, fontweight='bold')
+        plt.axis('off')  # Hide the axes
+
+        # Create a color bar for node degree
+        sm = plt.cm.ScalarMappable(cmap=plt.cm.viridis, norm=plt.Normalize(vmin=min(node_colors), vmax=max(node_colors)))
+        sm.set_array([])  # Only needed for older versions of Matplotlib
+        cbar = plt.colorbar(sm, ax=plt.gca())  # Associate the colorbar with the current axes
+        cbar.set_label('Node Degree', fontweight='bold')
+
+        # Show plotw
+        plt.show()
 

@@ -94,4 +94,9 @@ class User:
         print(f"Message sent to {recipient.name}: {message_content}")  # Notify about the sent message
         self.activity_log.append(f"Sent message to {recipient.name}: {message_content}")  # Log the activity
 
+    def display_messages(self):
+        """Display all received messages"""
+        print(f"Messages for {self.name}:")  # Header for message display
+        for message in self.messages:  # Iterate over received messages
+            print(f"From {message['from']}: {message['message']}")  # Print each message with sender info
     

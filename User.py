@@ -111,4 +111,17 @@ class User:
             cls.all_users.sort(key=lambda user: user.age, reverse=reverse)  # Sort by age
         else:
             print("Invalid sorting key!")  # Handle invalid key
+
+    @classmethod
+    def search_users(cls, key, value):
+        """Search for users based on the specified key and value"""
+        if key == 'user_id':
+            return [user for user in cls.all_users if user.user_id == value]  # Search by user_id
+        elif key == 'name':
+            return [user for user in cls.all_users if user.name.lower() == value.lower()]  # Search by name
+        elif key == 'age':
+            return [user for user in cls.all_users if user.age == value]  # Search by age
+        else:
+            print("Invalid search key!")  # Handle invalid key
+            return []  # Return an empty list if the key is invalid
     

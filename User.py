@@ -60,3 +60,10 @@ class User:
     def display_profile(self):
         """Display the user's profile information"""
         print(f"Profile for {self.name}: {self.profile}")  # Print the user's profile details
+
+    def add_post(self, post_content):
+        """Add a new post to the user's profile"""
+        self.profile_posts['posts'].append(post_content)  # Add post_content to the posts list
+        self.profile_posts['likes'][post_content] = []  # Initialize likes for the post
+        print(f"Post added by {self.name}: {post_content}")  # Notify about the new post
+        self.activity_log.append(f"Added post: {post_content}")  # Log the activity

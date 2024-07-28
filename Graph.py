@@ -329,4 +329,8 @@ class AdjacencyMatrix:
         
         # Return the average clustering coefficient of the graph
         return nx.average_clustering(G)
+    
+    def clear_screen():
+        """Clear the terminal screen for a better user interface."""
+        os.system('cls' if os.name == 'nt' else 'clear')  # Clear the screen based on the operating system
 

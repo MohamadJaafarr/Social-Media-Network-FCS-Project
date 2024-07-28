@@ -141,4 +141,18 @@ def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
+def main():
+    # Create multiple user instances
+    user1 = User(1, "Mhamad", 25)  # Create User 1
+    user2 = User(2, "Ali", 23)  # Create User 2
+    user3 = User(3, "Nisreen", 28)  # Create User 3
+    user4 = User(4, "Sara", 21)  # Create User 4
+    user5 = User(5, "Abbass", 29)  # Create User 5
+    user6 = User(6, "Layla", 23)  # Create User 6
+    user7 = User(7, "Imane", 21)  # Create User 7
+    user8 = User(8, "Caren", 26)  # Create User 8
+    user9 = User(9, "Yara", 20)  # Create User 9
+    user10 = User(10, "Omar", 18)  # Create User 10
+    user11 = User(11, "Rama", 19)  # Create User 11
+    user12 = User(12, "Rana", 27)  # Create User 12
     

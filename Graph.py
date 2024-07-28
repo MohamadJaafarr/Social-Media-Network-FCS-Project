@@ -214,3 +214,17 @@ class AdjacencyMatrix:
                     stack.append(neighbor)  # Add the neighbor to the stack
                     visited.add(neighbor)  # Mark the neighbor as visited
                     print(neighbor, end=' ')  # Print the neighbor
+
+    def connected_components(self):
+        """Find and return all connected components in the graph."""
+        visited = set()  # Set to keep track of visited users
+        components = []  # List to hold all connected components
+
+        for user in self.users:
+            if user not in visited:
+                # If the user has not been visited, perform a DFS/BFS to find all connected users
+                component = self._explore_component(user, visited)
+                components.append(component)  # Add the found component to the list
+        
+        return components
+

@@ -310,4 +310,23 @@ class AdjacencyMatrix:
         actual_connections = sum(sum(row) for row in self.graph) / 2
         # Return the network density as the ratio of actual connections to possible connections
         return actual_connections / total_possible_connections if total_possible_connections > 0 else 0
+    
+    def clustering_coefficient(self):
+        """Calculate the average clustering coefficient of the network."""
+        G = nx.Graph()  # Create an empty graph using NetworkX
+        
+        # Add all users as nodes to the graph
+        for user in self.users:
+            G.add_node(user)
+        
+        # Iterate over the adjacency matrix to add edges between connected users
+        for i in range(len(self.graph)):
+            for j in range(i + 1, len(self.graph[i])):
+                if self.graph[i][j] == 1:  # Check if there is a connection
+                    user1 = self.get_all_users()[i]  # Get the user corresponding to index i
+                    user2 = self.get_all_users()[j]  # Get the user corresponding to index j
+                    G.add_edge(user1, user2)  # Add an edge between user1 and user2
+        
+        # Return the average clustering coefficient of the graph
+        return nx.average_clustering(G)
 

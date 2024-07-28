@@ -65,3 +65,32 @@ class GraphApp(tk.Tk):
         # Quit Button
         self.quit_button = ttk.Button(self, text="Quit", command=self.quit)
         self.quit_button.pack(pady=20)
+
+    def add_user(self):
+        """
+        Prompt the user to enter a username and add it to the graph.
+
+        """
+        user_name = simpledialog.askstring("Input", "Enter user name:", parent=self)
+        if user_name:
+            if self.graph.adduser(user_name):
+                messagebox.showinfo("Success", f"User '{user_name}' added successfully!", parent=self)
+            else:
+                messagebox.showwarning("Warning", f"User '{user_name}' already exists.", parent=self)
+
+    def add_connection(self):
+        """
+        Prompt the user to enter two usernames and add a connection between them.
+
+        """
+        user1 = simpledialog.askstring("Input", "Enter first user name:", parent=self)
+        user2 = simpledialog.askstring("Input", "Enter second user name:", parent=self)
+        
+        if user1 and user2:
+            # Attempt to add the connection
+            result = self.graph.addconnection(user1, user2)  # Assuming self.graph is an instance of AdjacencyMatrix
+            
+            if result is None:  # No return means the connection was added successfully
+                messagebox.showinfo("Success", f"Connection between '{user1}' and '{user2}' added!", parent=self)
+            else:
+                messagebox.showwarning("Warning", f"Connection could not be made. Check user names.", parent=self)

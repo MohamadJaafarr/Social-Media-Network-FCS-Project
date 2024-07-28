@@ -78,3 +78,12 @@ def cli_menu(graph):
         else:
             print(Fore.RED + "Invalid choice. Please enter a number from 1 to 12.")
             input("Press Enter to continue...")
+
+
+def main():
+    graph = AdjacencyMatrix()
+    cli_menu(graph)
+
+
+if __name__ == "__main__":
+    main()

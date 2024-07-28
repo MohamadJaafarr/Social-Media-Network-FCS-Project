@@ -301,4 +301,13 @@ class AdjacencyMatrix:
         total_friends = sum(len([j for j in row if j == 1]) for row in self.graph)
         # Return the average number of friends per user, ensuring no division by zero
         return total_friends / self.num_users if self.num_users > 0 else 0
+    
+    def network_density(self):
+        """Calculate the density of the network."""
+        # Calculate the total possible connections in a complete graph of num_users
+        total_possible_connections = self.num_users * (self.num_users - 1) / 2
+        # Count actual connections by summing all connections in the adjacency matrix and dividing by 2
+        actual_connections = sum(sum(row) for row in self.graph) / 2
+        # Return the network density as the ratio of actual connections to possible connections
+        return actual_connections / total_possible_connections if total_possible_connections > 0 else 0
 

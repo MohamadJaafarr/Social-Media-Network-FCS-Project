@@ -86,3 +86,12 @@ class User:
         for post in self.profile_posts['posts']:
             likes_count = len(self.profile_posts['likes'][post])  # Count likes for each post
             print(f"{post} (Likes: {likes_count})")  # Print each post with its like count
+
+    def send_message(self, recipient, message_content):
+        """Send a message to another user"""
+        message = {"from": self.name, "message": message_content}  # Create a message dictionary
+        recipient.messages.append(message)  # Add message to recipient's message list
+        print(f"Message sent to {recipient.name}: {message_content}")  # Notify about the sent message
+        self.activity_log.append(f"Sent message to {recipient.name}: {message_content}")  # Log the activity
+
+    

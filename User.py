@@ -155,4 +155,37 @@ def main():
     user10 = User(10, "Omar", 18)  # Create User 10
     user11 = User(11, "Rama", 19)  # Create User 11
     user12 = User(12, "Rana", 27)  # Create User 12
+
+    # Example of Sorting Users
+    print("Before sorting by age:")
+    for user in User.all_users:
+        print(user)
+
+    # Sort users by age
+    User.sort_users(key='age')
+    print("\nAfter sorting by age:")
+    for user in User.all_users:
+        print(user)
+
+    # Sort users by name in descending order
+    User.sort_users(key='name', reverse=True)
+    print("\nAfter sorting by name (descending):")
+    for user in User.all_users:
+        print(user)
+
+    # Example of Searching Users
+    print("\nSearching for user with user_id=3:")
+    result = User.search_users(key='user_id', value=3)
+    for user in result:
+        print(user)
+
+    print("\nSearching for user named 'Ali':")
+    result = User.search_users(key='name', value='Ali')
+    for user in result:
+        print(user)
+
+    print("\nSearching for users with age 23:")
+    result = User.search_users(key='age', value=23)
+    for user in result:
+        print(user)
     

@@ -63,7 +63,10 @@ This project features a powerful network visualization tool that helps users und
 
 3. Run the application:
 
-      python main.py
+     python Graph.py
+     python User.py
+     python Graphical-User-Interface.py
+     python Command-Line-interface.py  
 
 ## 👉 How to use the application
 

@@ -94,3 +94,33 @@ class GraphApp(tk.Tk):
                 messagebox.showinfo("Success", f"Connection between '{user1}' and '{user2}' added!", parent=self)
             else:
                 messagebox.showwarning("Warning", f"Connection could not be made. Check user names.", parent=self)
+
+    def remove_user(self):
+        """
+        Prompt the user to enter a username and remove it from the graph.
+
+        """
+        user_name = simpledialog.askstring("Input", "Enter user name to remove:", parent=self)
+        if user_name:
+            self.graph.removeuser(user_name)
+            messagebox.showinfo("Success", f"User '{user_name}' removed successfully!", parent=self)
+
+    def remove_connection(self):
+        """
+        Prompt the user to enter two usernames and remove the connection between them.
+        
+        """
+        user1 = simpledialog.askstring("Input", "Enter first user name:", parent=self)
+        user2 = simpledialog.askstring("Input", "Enter second user name:", parent=self)
+        if user1 and user2:
+            # Attempt to remove the connection
+            self.graph.removeconnection(user1, user2)
+
+            # Check if the users exist and if the connection has been effectively removed
+            if user1 in self.graph.users and user2 in self.graph.users:
+                if self.graph.graph[self.graph.users[user1]][self.graph.users[user2]] == 0:
+                    messagebox.showinfo("Success", f"Connection between '{user1}' and '{user2}' removed!", parent=self)
+                else:
+                    messagebox.showwarning("Warning", f"Connection could not be removed. Check user names.", parent=self)
+            else:
+                messagebox.showwarning("Warning", f"One or both user names do not exist.", parent=self)

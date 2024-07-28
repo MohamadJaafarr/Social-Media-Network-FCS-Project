@@ -129,4 +129,10 @@ class User:
         """Set the user's profile picture"""
         self.profile_picture = picture_url  # Update the profile picture attribute
         print(f"Profile picture updated for {self.name}.")  # Notify about the picture update
+
+    def display_activity_log(self):
+        """Display the user's activity log"""
+        print(f"Activity Log for {self.name}:")  # Header for the activity log
+        for activity in self.activity_log:  # Iterate over activities
+            print(f"- {activity}")  # Print each activity
     

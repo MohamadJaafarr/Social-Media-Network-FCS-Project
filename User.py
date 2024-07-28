@@ -31,3 +31,13 @@ class User:
             self.activity_log.append(f"Sent friend request to {friend.name}.")  # Log the activity
         else:
             print(f"{friend.name} is already your friend or a pending request.")  # Handle duplicate requests
+
+    def accept_friend_request(self, friend):
+        """Accept a friend request from another user"""
+        if friend in self.friend_requests:
+            self.friends.append(friend)  # Add friend to friends list
+            self.friend_requests.remove(friend)  # Remove from pending requests
+            print(f"{friend.name} is now your friend.")  # Notify about the new friendship
+            self.activity_log.append(f"Accepted friend request from {friend.name}.")  # Log the activity
+        else:
+            print(f"No friend request from {friend.name}.")  # Handle case where there is no request

@@ -227,4 +227,25 @@ class AdjacencyMatrix:
                 components.append(component)  # Add the found component to the list
         
         return components
+    
+    def _explore_component(self, start_user, visited):
+        """Explore all users in the connected component starting from start_user."""
+        stack = [start_user]  # Initialize the stack for DFS
+        component = []  # List to hold the current connected component
+
+        while stack:
+            user = stack.pop()  # Pop a user from the stack
+            if user not in visited:
+                visited.add(user)  # Mark the user as visited
+                component.append(user)  # Add the user to the current component
+                
+                # Check all possible connections from the current user
+                index = self.users[user]  # Get the index of the user
+                for neighbor_index in range(self.num_users):
+                    if self.graph[index][neighbor_index] < float('inf'):  # Check if there is a valid connection
+                        neighbor = self.get_all_users()[neighbor_index]
+                        if neighbor not in visited:
+                            stack.append(neighbor)  # Add unvisited neighbors to the stack
+        
+        return component  # Return the connected component found
 

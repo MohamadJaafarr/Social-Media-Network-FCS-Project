@@ -50,3 +50,9 @@ class User:
             self.activity_log.append(f"Removed {friend.name} from friends.")  # Log the activity
         else:
             print(f"{friend.name} is not in your friends list.")  # Handle case where friend not found
+
+    def update_profile(self, key, value):
+        """Update the user's profile with a key-value pair"""
+        self.profile[key] = value  # Update the profile dictionary with the new key-value pair
+        print(f"Profile updated for {self.name}: {key} = {value}")  # Notify about the profile update
+        self.activity_log.append(f"Updated profile: {key} = {value}")  # Log the activity

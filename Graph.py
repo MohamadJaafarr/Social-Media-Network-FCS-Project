@@ -334,3 +334,39 @@ class AdjacencyMatrix:
         """Clear the terminal screen for a better user interface."""
         os.system('cls' if os.name == 'nt' else 'clear')  # Clear the screen based on the operating system
 
+    
+def main():
+
+    graph = AdjacencyMatrix()
+
+    graph.adduser("Mohamad")
+    graph.adduser("Ali")  
+    graph.adduser("Nisreen")
+    graph.adduser("Sara")
+    graph.adduser("Abbass")
+    graph.adduser("Layla")
+    graph.adduser("Imane")
+    graph.adduser("Caren")
+    graph.adduser("Yara")
+    graph.adduser("Omar")
+    graph.adduser("Rama")
+    graph.adduser("Rana")
+
+    graph.addconnection("Mohamad", "Ali")
+    graph.addconnection("Mohamad", "Nisreen")
+    graph.addconnection("Mohamad", "Sara")
+    graph.addconnection("Ali", "Nisreen") 
+    graph.addconnection("Ali", "Sara")  
+    graph.addconnection("Nisreen", "Sara")
+    graph.addconnection("Sara", "Rana")
+    graph.addconnection("Abbass", "Rama")
+    graph.addconnection("Layla", "Omar")
+    graph.addconnection("Abbass", "Omar")
+    graph.addconnection("Rana", "Mohamad")
+    graph.addconnection("Rama", "Ali")  
+    graph.addconnection("Caren", "Rana")
+    graph.addconnection("Abbass", "Layla")
+    graph.addconnection("Yara", "Mohamad")
+    graph.addconnection("Omar", "Mohamad")
+    graph.addconnection("Mohamad", "Mohamad")
+

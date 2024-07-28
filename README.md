@@ -1,5 +1,4 @@
 
-
 <h1 align="center">🌐 Social Media Network Analysis</h1>
 
 ## 🌐 Network Visualization
@@ -9,7 +8,7 @@ This project features a powerful network visualization tool that helps users und
 - **Nodes** 🌟: Each circle represents a user in the network.
 - **Edges** 🔗: The lines connecting these circles illustrate the relationships or connections between users.
   
-### Additional Insights
+### 💡 Additional Insights
 - **Color and Size** 🎨: The color and size of the nodes convey crucial information, such as the node degree (the number of direct connections a user has) within the network.
 - **Dynamic Layout** 📐: The layout is dynamically generated, providing a clear and intuitive view of connections, allowing for exploration of the social graph.
 
@@ -18,8 +17,7 @@ This project features a powerful network visualization tool that helps users und
 ![Social Media Network](https://github.com/MohamadJaafarr/Social-Media-Network-FCS-Project/blob/main/Social%20Media%20Network.PNG?raw=true)
 
 
-
-## Features
+## ⭐ Features
 
 - **Add Users**: Easily add new users to the network.
 - **Add connections**: Add connections between users.
@@ -28,7 +26,7 @@ This project features a powerful network visualization tool that helps users und
 - **Graph Algorithms**: Implement common graph algorithms such as DFS and BFS.
 - **Visualization**: Generate visual representations of the social network graph.
 
-## Technologies Used
+## 🚀 Technologies Used
 
 - **Python** (High-level, interpreted programming language known for its simplicity and readability)
 - **Tkinter** (For GUI)
@@ -36,7 +34,7 @@ This project features a powerful network visualization tool that helps users und
 - **Colorama** (For colored terminal output)
 - **Matplotlib** (For creating static, animated, and interactive visualizations)
 
-## Installation
+## 🛠️ Installation
 
 1. Clone the repository:
    ```bash
@@ -67,14 +65,13 @@ This project features a powerful network visualization tool that helps users und
 
       python main.py
 
+## 👉 How to use the application
 
-## How to use the application
+1. **👉Start the application**: Launch the application to view the main menu.
+2. **👉Choose an option**: Select from various operations like adding users and displaying the graph.
+3. **👉Follow prompts**: Enter the required information when prompted.
 
-1. **Start the application**: Launch the application to view the main menu.
-2. **Choose an option**: Select from various operations like adding users and displaying the graph.
-3. **Follow prompts**: Enter the required information when prompted.
-
-## Example CLI Menu
+## 📝 Example CLI Menu
 
 ----- Graph CLI Menu -----
 1. Add User
@@ -91,20 +88,24 @@ This project features a powerful network visualization tool that helps users und
 12. Exit
 ---------------------------
 
-## Graphical User Interface
+## 🌟 Graphical User Interface
+
+![Social Media Network](https://github.com/MohamadJaafarr/Social-Media-Network-FCS-Project/blob/main/Social-Media-Network.PNG?raw=true)
+
 ---------------------------
-## Acknowledgements
+## 😊 Acknowledgements
 
 - [NetworkX Documentation](https://networkx.org/documentation/stable/)
 - [Colorama Documentation](https://pypi.org/project/colorama/)
+  
 ---------------------------
 
-## Contact
+## 📣 Contact
 
 For any inquiries or feedback, please contact:
 
 - Mohamad Jaafar - [mhamadjaaafarr@gmail.com](mailto:your-email@example.com)
 - GitHub: [ MohamadJaafarr ](https://github.com/MohamadJaafarr/Social-Media-Network-FCS-Project)
 
-
+---------------------------
 

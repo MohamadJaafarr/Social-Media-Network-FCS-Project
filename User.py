@@ -99,4 +99,16 @@ class User:
         print(f"Messages for {self.name}:")  # Header for message display
         for message in self.messages:  # Iterate over received messages
             print(f"From {message['from']}: {message['message']}")  # Print each message with sender info
+
+    @classmethod  # Is used to define a method that belongs to the class rather than any particular instance of the class.
+    def sort_users(cls, key='user_id', reverse=False):
+        """Sort all_users list based on the specified key"""
+        if key == 'user_id':
+            cls.all_users.sort(key=lambda user: user.user_id, reverse=reverse)  # Sort by user_id
+        elif key == 'name':
+            cls.all_users.sort(key=lambda user: user.name.lower(), reverse=reverse)  # Sort by name
+        elif key == 'age':
+            cls.all_users.sort(key=lambda user: user.age, reverse=reverse)  # Sort by age
+        else:
+            print("Invalid sorting key!")  # Handle invalid key
     

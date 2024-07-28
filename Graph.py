@@ -83,3 +83,32 @@ class AdjacencyMatrix:
     def get_all_users(self):
         """Return a list of all user names."""
         return list(self.users.keys())  # Return the keys from the users dictionary
+    
+    def displayGraph(self):
+        """Display the adjacency matrix of the graph with colors and formatting."""
+        users = sorted(self.users.keys())  # Sort users for consistent display
+        
+        # Calculate the maximum width needed for the user names
+        max_user_length = max(len(user) for user in users)
+        
+        # Print the header with user names, right-aligned
+        print(Fore.GREEN + "\nAdjacency Matrix:")
+        header = Fore.BLUE + " " * (max_user_length + 3) + "  ".join(f"{user:>{max_user_length}}" for user in users)
+        print(header)
+        
+        # Print a separator
+        print(Fore.YELLOW + " " * (max_user_length + 3) + "-" * (max_user_length * len(users) + 2 * (len(users) - 1)))
+        
+        # Print each user's connections
+        for i, user in enumerate(users):
+            row_display = Fore.BLUE + f"{user:<{max_user_length}} | "  # User name in blue
+            for j in range(len(users)):
+                # Check for a valid connection
+                value = self.graph[i][j]
+                if value < float('inf'):  # There's a connection
+                    row_display += Fore.GREEN + f"{value:>{max_user_length}}"  # Connection weight (1 or other weight)
+                else:  # No connection
+                    row_display += Fore.RED + f"{0:>{max_user_length}}"  # No connection (0)
+            
+            # Print the complete row with connections
+            print(row_display + Style.RESET_ALL)  # Reset to default style after each row

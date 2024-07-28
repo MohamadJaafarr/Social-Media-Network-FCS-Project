@@ -56,3 +56,7 @@ class User:
         self.profile[key] = value  # Update the profile dictionary with the new key-value pair
         print(f"Profile updated for {self.name}: {key} = {value}")  # Notify about the profile update
         self.activity_log.append(f"Updated profile: {key} = {value}")  # Log the activity
+
+    def display_profile(self):
+        """Display the user's profile information"""
+        print(f"Profile for {self.name}: {self.profile}")  # Print the user's profile details

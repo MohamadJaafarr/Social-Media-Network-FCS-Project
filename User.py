@@ -189,3 +189,34 @@ def main():
     for user in result:
         print(user)
     
+    # Sending and accepting friend requests
+    user1.add_friend(user2)  # User 1 sends a friend request to User 2
+    user1.accept_friend_request(user2)  # User 2 accepts the friend request
+
+    # Adding friends
+    user1.add_friend(user3)  # User 1 sends a friend request to User 3
+    user2.add_friend(user4)  # User 2 sends a friend request to User 4
+
+    # Adding posts
+    user1.add_post("Hello world!")  # User 1 adds a post
+    user2.add_post("It's a beautiful day!")  # User 2 adds a post
+    user3.add_post("Good morning everyone!")  # User 3 adds a post
+
+    # Liking posts
+    user1.like_post("It's a beautiful day!", user2)  # User 1 likes User 2's post
+    user3.like_post("Hello world!", user1)  # User 3 likes User 1's post
+
+    # Messaging
+    user1.send_message(user2, "Hey Ali! How's it going?")  # User 1 sends a message to User 2
+    user2.send_message(user1, "I'm good, thanks!")  # User 2 replies to User 1
+
+    # Displaying user information
+    user1.display_profile()  # Display User 1's profile
+    user2.display_posts()  # Display User 2's posts
+    user2.display_messages()  # Display User 2's messages
+    user1.display_activity_log()  # Display User 1's activity log
+    user3.display_posts()  # Display User 3's posts
+    # Accessing and displaying the list of all users
+    print("\nAll Users:") 
+    for user in User.all_users: 
+        print(user)  
